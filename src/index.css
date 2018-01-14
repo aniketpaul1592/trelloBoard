@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+  background: #0079bf;
+}
+
+.homePage {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.cursorClass {
+  cursor:pointer;
+}
+
+
