@@ -36,7 +36,7 @@ export function cardData(state = [], action) {
                 }
             })
             console.log(filteredArr)
-            localStorage.setItem('cardData', JSON.stringify(tempArr));
+            localStorage.setItem('cardData', JSON.stringify(filteredArr));
             return filteredArr
             }
         default:{
