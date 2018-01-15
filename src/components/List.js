@@ -97,7 +97,9 @@ class List extends React.Component {
             description,
         }
         console.log(payload);
-        this.props.editCardData(payload)
+        if(type){
+            this.props.editCardData(payload)
+        }
         //this.props.addCardData()
     }
 
@@ -119,7 +121,9 @@ class List extends React.Component {
 
     getType(e){
         console.log(e.target.value)
-        this.setState({ newListType: e.target.value });
+        if(e.target.value.length !== 0){
+            this.setState({ newListType: e.target.value });
+        }
     }
 
     render() {
@@ -167,8 +171,8 @@ class List extends React.Component {
                             <option value="In Progress"  selected={!!(name=="In Progress")}> In Progress</option>
                             <option value="Done"  selected={!!(name=="Done")}>Done</option>
                         </select>
-                        <button onClick={this.editList}>EDIT</button>
-                        <button onClick={this.deleteList}>DELETE</button>
+                        <button onClick={this.editList}>Save</button>
+                        <button onClick={this.deleteList}>Delete</button>
                     </form >
                 </Modal>
                 <MidComponent>
