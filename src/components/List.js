@@ -1,6 +1,6 @@
 import React from 'react'
-import { Header, Footer, MidComponent, Cards, Container, MidPosition } from './__styles.js'
-import { Box } from 'kilvin'
+import { Header, Footer, MidComponent, Cards, Container, MidPosition, Button, Setter } from './__styles.js'
+import { Box, Spacer } from 'kilvin'
 import { connect } from 'react-redux'
 import ModalAdd from './ModalAdd';
 import ModalMove from './ModalMove';
@@ -15,7 +15,7 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width: '50%',
+        width: '41%',
     }
 };
 
@@ -46,7 +46,7 @@ class List extends React.Component {
 
     afterModal() {
         // references are now sync'd and can be accessed.
-        this.subtitle.style.color = '#f00';
+        this.subtitle.style.color = '#3b5998';
     }
 
     closeModal() {
@@ -139,16 +139,26 @@ class List extends React.Component {
                         style={customStyles}
                         contentLabel="Please Enter Details To Create A Card"
                     >
+                    <Setter>
                         <h3 ref={subtitle => this.subtitle = subtitle}>Hi There!!!</h3>
-                        <button onClick={this.closeModal}>close</button>
-                        <div>I am a modal</div>
+                        <Button onClick={this.closeModal}>close</Button>
+                    </Setter>
+                    <Setter direction={"column"}> 
+                        <div>Lets Create A Card</div>
                         <form onSubmit={this.addList}>
-                            <h4>Title</h4>
-                            <input type='text' name='title' id='title' required />
-                            <h4>Description</h4>
-                            <input type='text' name='Description' id='description' required /><br />
-                            <button>Submit</button>
+                        <Setter>
+                            <div>
+                                <h4>Title</h4>
+                                <input type='text' name='title' id='title' required />
+                            </div>
+                            <div> 
+                                <h4>Description</h4>
+                                <input type='text' name='Description' id='description' required /><br />
+                            </div>
+                        </Setter>
+                            <Button style={{'marginTop':20}}>Submit</Button>
                         </form>
+                    </Setter>
                     </Modal>: null
                 }
                 <Modal
@@ -158,22 +168,34 @@ class List extends React.Component {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <h2 ref={subtitle => this.subtitle = subtitle}>Edit Portal</h2>
-                    <button onClick={this.closeMoveModal}>close</button>
-                    <div>Edit and then Enter Edit </div>
-                    <form>
-                        <h4>Title</h4>
-                        <input type='text' name='title' id='editTitle' required/>
-                        <h4>Description</h4>
-                        <input type='text' name='Description' id='editDescription' required /><br />
-                        <select id="typeData" onChange={this.getType}>
-                            <option value="Todo" selected={!!(name=="Todo")}> Todo</option>
-                            <option value="In Progress"  selected={!!(name=="In Progress")}> In Progress</option>
-                            <option value="Done"  selected={!!(name=="Done")}>Done</option>
-                        </select>
-                        <button onClick={this.editList}>Save</button>
-                        <button onClick={this.deleteList}>Delete</button>
-                    </form >
+                    <Setter>
+                        <h3 ref={subtitle => this.subtitle = subtitle}>Hi There!!!</h3>
+                        <Button onClick={this.closeMoveModal}>close</Button>
+                    </Setter>
+                    <Setter direction={"column"}> 
+                        <div>Edit and then Save </div>
+                        <form>
+                        <Setter>
+                            <div>
+                                <h4>Title</h4>
+                                <input type='text' name='title' id='editTitle' required />
+                            </div>
+                            <div> 
+                                <h4>Description</h4>
+                                <input type='text' name='Description' id='editDescription' required /><br />
+                            </div>
+                            <select id="typeData" onChange={this.getType}>
+-                               <option value="Todo" selected={!!(name=="Todo")}> Todo</option>
+-                               <option value="In Progress"  selected={!!(name=="In Progress")}> In Progress</option>
+-                               <option value="Done"  selected={!!(name=="Done")}>Done</option>
+-                           </select>
+                        </Setter>
+                        <Setter>
+                            <Button style={{'marginTop':20}} onClick={this.editList}>Save</Button>
+                            <Button style={{'marginTop':20}} onClick={this.deleteList}>Delete</Button>
+                        </Setter>
+                        </form >
+                    </Setter>
                 </Modal>
                 <MidComponent>
                     {this.props.cards.map(val=>{
