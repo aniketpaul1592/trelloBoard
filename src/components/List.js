@@ -98,6 +98,7 @@ class List extends React.Component {
         }
         console.log(payload);
         this.props.editCardData(payload)
+        //this.props.addCardData()
     }
 
     deleteList(e) {
@@ -117,6 +118,7 @@ class List extends React.Component {
     }
 
     getType(e){
+        console.log(e.target.value)
         this.setState({ newListType: e.target.value });
     }
 
@@ -161,9 +163,9 @@ class List extends React.Component {
                         <h4>Description</h4>
                         <input type='text' name='Description' id='editDescription' required /><br />
                         <select id="typeData" onChange={this.getType}>
-                            <option value="Todo"> Todo</option>
-                            <option value="In Progress"> In Progress</option>
-                            <option value="Done">Done</option>
+                            <option value="Todo" selected={!!(name=="Todo")}> Todo</option>
+                            <option value="In Progress"  selected={!!(name=="In Progress")}> In Progress</option>
+                            <option value="Done"  selected={!!(name=="Done")}>Done</option>
                         </select>
                         <button onClick={this.editList}>EDIT</button>
                         <button onClick={this.deleteList}>DELETE</button>
@@ -186,7 +188,7 @@ class List extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        //cards: state.cardData,
+        cards: state.cardData,
     }
 };
 const mapDispatchToProps = (dispatch) => {
