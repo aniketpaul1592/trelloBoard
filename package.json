@@ -31,5 +31,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage" : "http://aniketpaul1592.github.io/trelloBoard"
+  "homepage": "http://aniketpaul1592.github.io/trelloBoard"
 }
