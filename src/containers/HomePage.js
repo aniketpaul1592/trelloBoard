@@ -19,9 +19,9 @@ class HomePage extends React.Component {
 			<div className="parentClass">
 				<h2>Trello Board</h2>
 				<div className='listClass'>
-					<List name={'Todo'} cards={this.props.cards}/>
-					<List name={'In Progess'} cards={this.props.cards}/>
-					<List name={'Done'} cards={this.props.cards}/>
+					<List name={'Todo'}/>
+					<List name={'In Progress'}/>
+					<List name={'Done'}/>
 				</div>
 			</div>
 		);
@@ -30,7 +30,7 @@ class HomePage extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-        cards: state.cardData,
+        //cards: state.cardData,
     }
 }
 
