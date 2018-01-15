@@ -3,6 +3,8 @@ export function cardData(state = [], action) {
         case 'ADD_CARD':{
             let tempArr = Array.from(state)
             tempArr.push(action.payload)
+            console.log(tempArr)
+            localStorage.setItem('cardData', JSON.stringify(tempArr));
             return tempArr
         }
         case 'EDIT_CARD':{
@@ -20,6 +22,8 @@ export function cardData(state = [], action) {
                     val.description = description
                 }
             })
+            console.log(tempArr)
+            localStorage.setItem('cardData', JSON.stringify(tempArr));
             return tempArr
             }   
             case 'DELETE_CARD':{
@@ -31,9 +35,17 @@ export function cardData(state = [], action) {
                     return true
                 }
             })
+            console.log(filteredArr)
+            localStorage.setItem('cardData', JSON.stringify(tempArr));
             return filteredArr
             }
-        default:
-            return state;
+        default:{
+            let persistData = localStorage.getItem('cardData');
+            if(persistData && persistData.length>0){
+                return JSON.parse(persistData);
+            }else{
+                return state;
+            }
+        }
     }
 }
