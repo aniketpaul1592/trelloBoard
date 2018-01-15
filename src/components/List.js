@@ -84,7 +84,7 @@ class List extends React.Component {
     editList(e) {
         let title = document.getElementById('editTitle').value
         let description = document.getElementById('editDescription').value
-        let type = this.state.newListType
+        let type = this.state.newListType.length>0? this.state.newListType : this.props.name
         console.log(title, description,type);
         e.preventDefault();
         this.setState({ modalMoveIsOpen: false });
@@ -184,7 +184,7 @@ class List extends React.Component {
                                 <h4>Description</h4>
                                 <input type='text' name='Description' id='editDescription' required /><br />
                             </div>
-                            <select id="typeData" onChange={this.getType}>
+                            <select id="typeData" onChange={this.getType} style={{width: '18%', height: '22px'}}>
 -                               <option value="Todo" selected={!!(name=="Todo")}> Todo</option>
 -                               <option value="In Progress"  selected={!!(name=="In Progress")}> In Progress</option>
 -                               <option value="Done"  selected={!!(name=="Done")}>Done</option>
