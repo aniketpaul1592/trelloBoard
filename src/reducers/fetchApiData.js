@@ -1,14 +1,12 @@
 export function cardData(state = [], action) {
-    let tempArr = state
     switch (action.type) {
-        case 'ADD_CARD':
-            tempArr = state
+        case 'ADD_CARD':{
+            let tempArr = Array.from(state)
             tempArr.push(action.payload)
-            console.log(tempArr)
             return tempArr
-
-        case 'EDIT_CARD':
-            tempArr = state
+        }
+        case 'EDIT_CARD':{
+            let tempArr = Array.from(state)
             let {name,
                 oldTitle,
                 oldDescription,
@@ -22,11 +20,10 @@ export function cardData(state = [], action) {
                     val.description = description
                 }
             })
-            console.log(tempArr)
             return tempArr
-
-            case 'DELETE_CARD':
-            tempArr = state
+            }   
+            case 'DELETE_CARD':{
+            let tempArr = Array.from(state)
             let filteredArr = tempArr.filter(val=>{
                 if(val.name === action.payload.name && val.title === action.payload.oldTitle && val.description === action.payload.oldDescription){
                     return false
@@ -34,8 +31,8 @@ export function cardData(state = [], action) {
                     return true
                 }
             })
-            console.log(filteredArr)
             return filteredArr
+            }
         default:
             return state;
     }
