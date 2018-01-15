@@ -1,16 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 The Project when installed provides the user with a Trello Board
+
 The Trello Board can perform the following Task:
+
 *`Add Card`
+
 *`Edit Card`
+
 *`Delete Card`
+
 *`Traverse Among Lists`(Todo In Progress and Done)
+
 *`Persists Data` on page refresh
 
-## Sending Feedback
-
-We are always open to [your feedback](https://github.com/facebookincubator/create-react-app/issues).
 
 ## Folder Structure
 
